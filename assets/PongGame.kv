@@ -1,0 +1,101 @@
+BallMovement:
+
+<BallMovement>:
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: "background_AJ_sky.jpg"
+
+    canvas:
+        Line:
+            points: (self.width / 2, 0, self.width / 2, self.height)
+            width: 2
+
+    Button:
+        text: "pause"
+        font_name: "AlloyInk-nRLyO.ttf"
+        font_size: "20dp"
+        on_press: root.pause()
+        size: self.size
+        background_color: 0, 0, 0, 0
+        pos: self.parent.width / 2 - self.width, self.parent.height - self.height
+
+    Button:
+        text: "pause"
+        font_name: "AlloyInk-nRLyO.ttf"
+        font_size: "20dp"
+        on_press: root.pause()
+        size_hint: None, None
+        size: self.size
+        background_color: 0, 0, 0, 0
+        pos: self.parent.width - self.width, self.parent.height - self.height
+
+    Button:
+        opacity: root.winner_visible
+        text: "New game"
+        font_name: "AlloyInk-nRLyO.ttf"
+        font_size: "40dp"
+        size: 300, 80
+        on_press: root.restart_game()
+        pos: self.parent.width / 2 - self.width / 2, self.parent.height / 2 - self.height - 20
+        background_color: 0, 0, 0, 0
+        color: 1, 1, 1, 1
+        disabled: root.restart_button
+
+    Label:
+        text: "player 1"
+        font_name: "AlloyInk-nRLyO.ttf"
+        font_size: "20dp"
+        pos: 10, self.parent.height - self.height
+
+    Label:
+        text: "player 2"
+        font_name: "AlloyInk-nRLyO.ttf"
+        font_size: "20 dp"
+        pos: self.parent.width / 2 + 10, self.parent.height - self.height
+
+    Label:
+        text: root._counter_left
+        font_name: "AlloyInk-nRLyO.ttf"
+        font_size: "40dp"
+        pos: self.parent.width / 4 - self.width / 2, self.parent.height - self.height
+        color: 1, 1, 1, 1
+
+    Label:
+        text: root._counter_right
+        font_name: "AlloyInk-nRLyO.ttf"
+        font_size: "40dp"
+        pos: (self.parent.width / 4) * 3 - self.width / 2, self.parent.height - self.height
+        color: 1, 1, 1, 1
+
+    Label:
+        opacity: root.countdown_visible
+        text: root.countdown_text
+        font_name: "AlloyInk-nRLyO.ttf"
+        font_size: "60dp"
+        pos: self.parent.width / 4 - self.width / 2, self.parent.height / 2 - self.height / 2
+        color: 1, 1, 1, 1
+
+    Label:
+        opacity: root.countdown_visible
+        text: root.countdown_text
+        font_name: "AlloyInk-nRLyO.ttf"
+        font_size: "60dp"
+        pos: (self.parent.width / 4) * 3 - self.width / 2, self.parent.height / 2 - self.height / 2
+        color: 1, 1, 1, 1
+
+    Label:
+        text: "II"
+        # font_name: "AlloyInk-nRLyO.ttf"
+        font_size: "120dp"
+        pos: self.parent.width / 2 - self.width / 2, self.parent.height / 2 - self.height / 2
+        color: root.pause_visible
+
+    Label:
+        opacity: root.winner_visible
+        text: root.winner
+        font_name: "AlloyInk-nRLyO.ttf"
+        font_size: "60dp"
+        pos: self.parent.width / 2 - self.width / 2, self.parent.height / 2 - self.height / 2
+        color: 1, 1, 1, 1
